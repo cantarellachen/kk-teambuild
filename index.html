@@ -257,7 +257,7 @@ body {
 <section class="page" id="page-info">
     <div class="card">
         <span class="card-title">🎫 购票与预订清单</span>
-        <span class="section-note">点击「复制」存链接，或直接点蓝字链接打开购买页</span>
+        <span class="section-note">点击「复制」存链接，在浏览器打开购买；Klook 支持支付宝/微信支付。打车认店名比认地址好使，Grab 目的地直接输英文店名</span>
         <div id="ticket-list"></div>
     </div>
 
@@ -330,7 +330,7 @@ var DAYS = [
         {type:'晚餐', name:'佑记肉骨茶（加雅街）', note:'药材肉骨茶+卤水拼盘+油条，人均 RM20-30'}
     ],
     timeline:[
-        {time:'08:30', title:'酒店出发 → 哲斯顿码头', desc:'一日游含接送，码头距酒店仅10分钟'},
+        {time:'09:00', title:'酒店出发 → 哲斯顿码头', desc:'一日游含接送（下单时选 9 点档）；码头：Jesselton Point Ferry Terminal，市中心海旁，距酒店约10分钟'},
         {time:'09:30', title:'沙比岛浮潜', desc:'东姑阿都拉曼公园，看鱼群珊瑚，可自费玩香蕉船/拖曳伞'},
         {time:'12:30', title:'马穆迪岛 + 岛上午餐', desc:'安静小岛，玻璃海浮潜，含简餐'},
         {time:'15:30', title:'返回酒店冲凉休息', desc:'泳池回血，晒后补水'},
@@ -348,11 +348,11 @@ var DAYS = [
         {type:'晚餐', name:'大茄来海鲜楼 · 团建海鲜大宴', note:'奶油老虎虾+咸蛋黄蟹+椒盐濑尿虾，人均 RM80-120，17:30 前到避开排队'}
     ],
     timeline:[
-        {time:'08:30', title:'加雅街周日市集', desc:'仅周日有！手作、小吃、水果摊，淘伴手礼的好机会'},
-        {time:'10:30', title:'怡丰茶室早午餐', desc:'招牌叻沙+牛杂面+桔子冰，排队旺建议早到'},
-        {time:'11:30', title:'水上清真寺 + 沙巴大学粉红清真寺', desc:'打卡拍照（入清真寺需租借罩袍，着装不露肩膝）'},
-        {time:'13:30', title:'回酒店午休', desc:'午后阵雨时段，正好躲雨'},
-        {time:'14:30', title:'马里马里原住民文化村', desc:'五大部落屋、吹箭体验、传统歌舞、竹筒饭试吃（下午场约3小时）'},
+        {time:'09:00', title:'加雅街周日市集', desc:'仅周日有！Jalan Gaya 整条街，手作、小吃、水果摊，淘伴手礼'},
+        {time:'11:00', title:'怡丰茶室早午餐', desc:'加雅街中段，招牌叻沙+牛杂面+桔子冰，周日排队约20-30分钟'},
+        {time:'12:15', title:'水上清真寺 + 沙巴大学粉红清真寺', desc:'水上清真寺在 Likas 湾（打车约15分钟）；粉红清真寺在沙巴大学 UMS 校园内（约20分钟）；入清真寺需租借罩袍，着装不露肩膝'},
+        {time:'14:00', title:'回酒店午休', desc:'午后阵雨时段，正好躲雨'},
+        {time:'14:30', title:'马里马里原住民文化村', desc:'Jalan Kionsom, Inanam（市区以北约30分钟，半日游含接送）；五大部落屋、吹箭体验、传统歌舞、竹筒饭试吃（下午场约3小时）'},
         {time:'19:00', title:'🦀 大茄来海鲜晚宴', desc:'奶油老虎虾+咸蛋黄蟹+椒盐濑尿虾，人均RM80-120'}
     ]
 },
@@ -360,18 +360,18 @@ var DAYS = [
     id:4, name:'D4 12.7', date:'12月7日 周一', theme:'神山自然日', img:'images/mountain.jpg',
     weather:'市区32℃ · 山上15-22℃', transport:'一日游含酒店接送、中文导游（单程约2小时）', ticket:'Klook 神山公园+波令温泉一日游（含接送，免费取消）',
     meals:[
-        {type:'早餐', name:'酒店自助早餐', note:'07:30 出发，前一天和前台确认开餐时间'},
+        {type:'早餐', name:'酒店自助早餐', note:'09:00 出发，从容吃早餐'},
         {type:'午餐', name:'神山山景自助午餐', note:'含在一日游行程内，神山正面景观位'},
-        {type:'晚餐', name:'双天海鲜楼（市中心）', note:'黑胡椒蟹+咸蛋黄鱿鱼，人均 RM70-100'},
-        {type:'宵夜', name:'天桥底榴莲街', note:'猫山王/红虾，人均 RM30-60；吃完榴莲当天别喝酒'}
+        {type:'晚餐', name:'双天海鲜楼（市中心海滨）', note:'黑胡椒蟹+咸蛋黄鱿鱼，人均 RM70-100，20:00 晚市正当时'},
+        {type:'宵夜', name:'天桥底榴莲街', note:'菲律宾市场旁海滨，猫山王/红虾，人均 RM30-60；吃完榴莲当天别喝酒'}
     ],
     timeline:[
-        {time:'07:30', title:'酒店出发', desc:'沿路看神山云海，车上补觉'},
-        {time:'09:30', title:'神山公园（世界自然遗产）', desc:'京那巴鲁山4095米观景、植物园漫步，平地漫步不累'},
-        {time:'12:00', title:'山景自助午餐', desc:'含在行程内，神山正面景观位'},
-        {time:'14:00', title:'波令温泉 + 树冠吊桥', desc:'泡脚解乏，吊桥离地40米（恐高可在下面等）'},
-        {time:'15:30', title:'Desa 奶牛场', desc:'现挤鲜奶+牛奶冰淇淋，神山背景拍团体照'},
-        {time:'17:30', title:'返程市区', desc:'19:30 到市区，双天海鲜楼晚餐+榴莲街宵夜'}
+        {time:'09:00', title:'酒店出发', desc:'一日游含接送、中文导游，单程约2小时，车上补觉（想看神山云海可选早场）'},
+        {time:'11:00', title:'神山公园（世界自然遗产）', desc:'Ranau 89300，京那巴鲁山4095米观景、植物园漫步，平地漫步不累'},
+        {time:'13:30', title:'山景自助午餐', desc:'含在行程内，神山正面景观位'},
+        {time:'15:30', title:'波令温泉 + 树冠吊桥', desc:'Poring, Ranau，泡脚解乏，吊桥离地40米（恐高可在下面等）'},
+        {time:'17:00', title:'Desa 奶牛场', desc:'Kundasang 神山脚下，现挤鲜奶+牛奶冰淇淋，神山背景拍团体照'},
+        {time:'17:45', title:'返程市区', desc:'约19:45 到市区，正好赶上晚市海鲜'}
     ]
 },
 {
@@ -385,7 +385,7 @@ var DAYS = [
     timeline:[
         {time:'上午', title:'睡到自然醒', desc:'酒店泳池、私人沙滩、CHI水疗（SPA提前一天预约）'},
         {time:'12:00', title:'酒店午餐', desc:'下午自由活动：Imago商场购物 / 加练一场按摩'},
-        {time:'16:15', title:'出发前往丝绸港湾码头', desc:'Sutera Harbour Marina，距酒店10分钟'},
+        {time:'16:15', title:'出发前往丝绸港湾码头', desc:'Sutera Harbour 度假区内 Marina 码头（距酒店打车约10分钟）'},
         {time:'17:10', title:'登船 🚢', desc:'17:30 启航，三层豪华双体船'},
         {time:'17:30', title:'日落晚餐游轮（团建收官晚宴）', desc:'国际自助晚餐+现场乐队+沙巴传统舞蹈，海上无遮挡日落'},
         {time:'19:45', title:'下船回酒店', desc:'收拾行李，早休息'}
@@ -408,34 +408,34 @@ var DAYS = [
 ];
 
 var RESTAURANTS = [
-    {name:'大茄来海鲜楼', en:'Welcome Seafood Restaurant', tags:['Day3 晚餐','团建主宴','人均 RM80-120'], area:'丹绒亚路（距酒店打车5分钟）',
+    {name:'大茄来海鲜楼', en:'Welcome Seafood Restaurant', tags:['Day3 晚餐','团建主宴','人均 RM80-120'], area:'Kolam Centre, Jalan Tunku Abdul Rahman（距酒店打车5分钟；Grab 搜 Welcome Seafood 直达）',
      dishes:[['奶油老虎虾','招牌必点，奶香浓郁'],['咸蛋黄炒蟹','咸蛋黄控别错过'],['椒盐濑尿虾','外酥里嫩'],['清蒸石斑','海鲜新鲜的试金石']],
      tip:'17:30 前到可避开排队，8-9人建议提前电话订位'},
-    {name:'怡丰茶室', en:'Yee Fung Laksa', tags:['Day3 早午餐','老字号','人均 RM15-25'], area:'加雅街',
+    {name:'怡丰茶室', en:'Yee Fung Laksa', tags:['Day3 早午餐','老字号','人均 RM15-25'], area:'加雅街中段 Jalan Gaya（周日市集步行即达；Grab 搜 Yee Fung）',
      dishes:[['叻沙 Laksa','招牌，椰香咖喱汤底配米粉'],['牛杂面','炖得软烂入味'],['桔子冰','解腻神器']],
      tip:'周日市集上午人多，排队约20-30分钟，可分头排'},
-    {name:'佑记肉骨茶', en:'Yu Kee Bak Kut Teh', tags:['Day2 晚餐','药材汤底','人均 RM20-30'], area:'加雅街',
+    {name:'佑记肉骨茶', en:'Yu Kee Bak Kut Teh', tags:['Day2 晚餐','药材汤底','人均 RM20-30'], area:'加雅街 Jalan Gaya（Grab 搜 Yu Kee Bak Kut Teh）',
      dishes:[['药材肉骨茶','胡椒药材香，配油条'],['卤水拼盘','卤蛋豆腐入味']],
      tip:'晚上去，加雅街夜市氛围刚好'},
-    {name:'富源咖啡店', en:'Foo Phin Coffee', tags:['备选早餐','南洋风','人均 RM10-15'], area:'加雅街',
+    {name:'富源咖啡店', en:'Foo Phin Coffee', tags:['备选早餐','南洋风','人均 RM10-15'], area:'加雅街 Jalan Gaya（从酒店打车约10分钟）',
      dishes:[['咖椰牛油吐司','炭烤吐司夹咖椰酱+冰牛油'],['海南咖啡','拉得又滑又香'],['半生熟蛋','配吐司经典吃法']],
      tip:'吃不惯酒店自助时的换口味选择，加雅街步行可达'},
-    {name:'双天海鲜楼', en:'Double Star Seafood', tags:['Day4 晚餐','人均 RM70-100'], area:'市中心',
+    {name:'双天海鲜楼', en:'Double Star Seafood', tags:['Day4 晚餐','人均 RM70-100'], area:'市中心海滨一带（Grab 搜「双天海鲜楼」直达）',
      dishes:[['黑胡椒蟹','本地人也认的味道'],['咸蛋黄鱿鱼','下酒好菜']],
-     tip:'神山一日游回程顺路，大茄来的平替'},
-    {name:'天桥底榴莲街', en:'Durian Street', tags:['Day4 宵夜','人均 RM30-60'], area:'市中心海滨天桥底',
+     tip:'神山一日游回程顺路，20:00 晚市开吃'},
+    {name:'天桥底榴莲街', en:'Durian Street', tags:['Day4 宵夜','人均 RM30-60'], area:'市中心海滨天桥底，菲律宾市场旁（傍晚出摊）',
      dishes:[['猫山王','苦香回甘，果肉绵密'],['红虾','偏甜口，初尝友好']],
      tip:'双天吃完散步就到；吃完榴莲当天别喝酒'}
 ];
 
 var TICKETS = [
-    ['跳岛：沙比/马努干/马穆迪岛（含接送+午餐）','Klook · 出发前3天订 · 24h前免费取消','¥360-534','https://www.klook.cn/zh-CN/experiences/list/sabah-water-activities/c66-cate121'],
-    ['马里马里原住民文化村半日游','Klook · 选12.6下午场','¥211起','https://www.klook.cn/zh-CN/destination/c364959-kota-kinabalu/'],
-    ['神山公园+波令温泉一日游（含接送）','Klook · 选12.7 · 免费取消','¥348-418','https://www.klook.cn/zh-CN/experiences/list/sabah-water-activities/c66-cate121'],
-    ['北婆罗洲日落晚餐游轮','官网/携程 · 12.8晚 · 团体询价 +60 12-852 8009','RM255-380','https://northborneocruises.com/sunset-dinner-cruise'],
-    ['ZEN Borneo 按摩','Klook搜「ZEN Borneo」· 建议订Day2 16:30场','RM98起','https://www.klook.cn/zh-CN/destination/c364959-kota-kinabalu/'],
-    ['香格里拉酒店（丹绒亚路）','官网会员价更低 · 团体价 reservations.tah@shangri-la.com','约¥1200-1450/间/晚','https://www.shangri-la.com/cn/kotakinabalu/tanjungaruresort/'],
-    ['MDAC 电子入境卡（免费，必填）','12.1-12.4 每人填写 · 保存确认信','免费','https://imigresen-online.imi.gov.my/mdac/main']
+    ['跳岛：沙比/马努干/马穆迪岛（含接送+午餐）','预订：Klook 搜「沙比岛 跳岛」→ 选 12.5 含酒店接送套餐 → 下单备注酒店名；24h 前可免费取消','¥360-534','https://www.klook.cn/zh-CN/experiences/list/sabah-water-activities/c66-cate121'],
+    ['马里马里原住民文化村半日游','预订：Klook 搜「马里马里」→ 选 12.6 下午场（含接送）','¥211起','https://www.klook.cn/zh-CN/destination/c364959-kota-kinabalu/'],
+    ['神山公园+波令温泉一日游（含接送）','预订：Klook 搜「神山 波令温泉」→ 选 12.7 中文团、9点出发档；免费取消','¥348-418','https://www.klook.cn/zh-CN/experiences/list/sabah-water-activities/c66-cate121'],
+    ['北婆罗洲日落晚餐游轮','预订：携程搜「北婆罗洲游轮」或官网下单（选 12.8）；9 人致电 +60 12-852 8009 询团体价；遇雨可改期','RM255-380','https://northborneocruises.com/sunset-dinner-cruise'],
+    ['ZEN Borneo 按摩','预订：Klook 搜「ZEN Borneo」→ 选 60 分钟档、预约时间填 16:30；也可直接到店（12:00-24:00，最晚预约22:00）','RM98起','https://www.klook.cn/zh-CN/destination/c364959-kota-kinabalu/'],
+    ['香格里拉酒店（丹绒亚路）','预订：官网注册会员价下单，或携程比价；9 人团体价发邮件 reservations.tah@shangri-la.com / 电话 +60-88-327-888','约¥1200-1450/间/晚','https://www.shangri-la.com/cn/kotakinabalu/tanjungaruresort/'],
+    ['MDAC 电子入境卡（免费，必填）','填法：官网填护照号、航班 AK1521、酒店地址（No. 20 Jalan Aru, Tanjung Aru）→ 12.1-12.4 每人提交 → 确认信存手机备查','免费','https://imigresen-online.imi.gov.my/mdac/main']
 ];
 
 var BUDGET = [

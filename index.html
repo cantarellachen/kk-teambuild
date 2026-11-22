@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>亚庇团建 12.4-12.9 · 6天5晚</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", sans-serif;
+    background: #f4f7f9;
+    color: #1f2329;
+    font-size: 15px;
+    line-height: 1.6;
+    padding-bottom: 70px;
+}
+.app { max-width: 560px; margin: 0 auto; }
+
+.hero { position: relative; height: 230px; overflow: hidden; }
+.hero img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.hero-mask { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,40,60,.05) 30%, rgba(10,40,60,.65) 100%); }
+.hero-text { position: absolute; left: 20px; right: 20px; bottom: 18px; display: flex; flex-direction: column; }
+.hero-title { color: #fff; font-size: 26px; font-weight: 700; letter-spacing: 1px; }
+.hero-date { color: rgba(255,255,255,.92); font-size: 15px; margin-top: 4px; }
+.hero-chips { display: flex; flex-wrap: wrap; margin-top: 8px; }
+.hero-chip { font-size: 11px; color: #fff; background: rgba(255,255,255,.22); border-radius: 999px; padding: 3px 10px; margin: 0 6px 4px 0; }
+
+.card { background: #fff; border-radius: 12px; padding: 16px; margin: 12px; box-shadow: 0 2px 8px rgba(15,60,80,.06); }
+.card-title { display: block; font-size: 16px; font-weight: 600; color: #17323e; margin-bottom: 10px; }
+
+.meta-grid { display: flex; flex-wrap: wrap; }
+.meta-item { width: 50%; padding: 6px 0; display: flex; flex-direction: column; }
+.meta-label { font-size: 12px; color: #8a9199; }
+.meta-value { font-size: 15px; font-weight: 600; color: #17323e; margin-top: 2px; }
+
+.weather-now { display: flex; align-items: center; margin-bottom: 8px; }
+.weather-temp { font-size: 28px; font-weight: 700; color: #0e7490; margin-right: 12px; }
+.weather-summary { flex: 1; font-size: 13px; color: #4a5560; }
+.weather-sun { display: flex; background: #f2f8f9; border-radius: 8px; padding: 8px 12px; margin-bottom: 10px; }
+.weather-sun span { flex: 1; font-size: 13px; color: #17323e; }
+.tip-list .tip { display: flex; margin-bottom: 5px; }
+.tip-dot { color: #0e7490; font-weight: 700; margin-right: 6px; }
+.tip-text { flex: 1; font-size: 13px; color: #4a5560; }
+
+.day-row { display: flex; align-items: center; padding: 10px 0; border-bottom: 1px solid #f0f3f5; }
+.day-row:last-child { border-bottom: none; }
+.day-img { width: 70px; height: 70px; border-radius: 8px; flex-shrink: 0; object-fit: cover; }
+.day-info { flex: 1; margin-left: 12px; }
+.day-head { display: flex; align-items: center; }
+.day-label { font-size: 14px; font-weight: 700; color: #0e7490; margin-right: 6px; }
+.day-date { font-size: 12px; color: #8a9199; }
+.day-theme { font-size: 14px; font-weight: 600; color: #17323e; margin-top: 3px; }
+.day-brief { font-size: 12px; color: #6b7480; margin-top: 2px; }
+.day-arrow { color: #c4ccd4; font-size: 20px; margin-left: 6px; }
+
+.hl-item { display: flex; padding: 8px 0; }
+.hl-icon { font-size: 22px; margin-right: 10px; }
+.hl-title { font-size: 14px; font-weight: 600; color: #17323e; }
+.hl-desc { font-size: 12px; color: #6b7480; margin-top: 2px; }
+
+.quick-row { display: flex; justify-content: space-between; }
+.quick-btn { flex: 1; text-align: center; background: #e6f4f6; color: #0e7490; font-size: 13px; font-weight: 600; border-radius: 8px; padding: 11px 0; margin-right: 8px; cursor: pointer; border: none; }
+.quick-btn:last-child { margin-right: 0; }
+
+/* tabs */
+.tabbar { position: fixed; bottom: 0; left: 0; right: 0; display: flex; background: #fff; border-top: 1px solid #e8edf0; padding-bottom: env(safe-area-inset-bottom); z-index: 100; }
+.tabbar .tab { flex: 1; text-align: center; padding: 10px 0 8px; font-size: 12px; color: #8a9199; cursor: pointer; border: none; background: none; }
+.tabbar .tab .ticon { display: block; font-size: 18px; margin-bottom: 2px; }
+.tabbar .tab.active { color: #0e7490; font-weight: 600; }
+.page { display: none; }
+.page.active { display: block; }
+
+/* schedule */
+.day-tabs { display: flex; overflow-x: auto; background: #fff; padding: 8px 10px 4px; position: sticky; top: 0; z-index: 50; scrollbar-width: none; }
+.day-tabs::-webkit-scrollbar { display: none; }
+.day-tab { flex-shrink: 0; font-size: 13px; color: #6b7480; background: #f1f4f6; border-radius: 999px; padding: 6px 15px; margin-right: 8px; cursor: pointer; border: none; }
+.day-tab.active { background: #0e7490; color: #fff; font-weight: 600; }
+.day-hero { position: relative; height: 160px; margin: 10px 12px; border-radius: 12px; overflow: hidden; }
+.day-hero img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.day-hero .mask { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,40,60,0) 30%, rgba(10,40,60,.6) 100%); }
+.day-hero .text { position: absolute; left: 14px; bottom: 12px; display: flex; flex-direction: column; }
+.day-hero .d { color: rgba(255,255,255,.9); font-size: 12px; }
+.day-hero .t { color: #fff; font-size: 20px; font-weight: 700; margin-top: 2px; }
+.meta-row { display: flex; padding: 5px 0; }
+.meta-label { width: 64px; flex-shrink: 0; font-size: 13px; color: #8a9199; }
+.meta-value { flex: 1; font-size: 13px; color: #17323e; }
+
+.meal-row { display: flex; align-items: flex-start; padding: 8px 0; border-bottom: 1px solid #f0f3f5; }
+.meal-row:last-child { border-bottom: none; }
+.meal-type { width: 56px; flex-shrink: 0; font-size: 12px; font-weight: 700; color: #c2680c; background: #fdf0e0; border-radius: 999px; text-align: center; padding: 2px 0; margin-right: 10px; }
+.meal-name { font-size: 14px; font-weight: 600; color: #17323e; }
+.meal-note { font-size: 12px; color: #6b7480; margin-top: 2px; }
+
+.tl-item { display: flex; margin-bottom: 14px; }
+.tl-item:last-child { margin-bottom: 0; }
+.tl-left { width: 60px; flex-shrink: 0; display: flex; flex-direction: column; align-items: flex-start; }
+.tl-time { font-size: 12.5px; font-weight: 700; color: #0e7490; }
+.tl-line { flex: 1; width: 1px; background: #d8e6ea; margin: 4px 0 0 7px; }
+.tl-item:last-child .tl-line { background: transparent; }
+.tl-body { flex: 1; margin-left: 10px; }
+.tl-title { font-size: 14px; font-weight: 600; color: #17323e; }
+.tl-desc { font-size: 12.5px; color: #6b7480; margin-top: 3px; }
+
+/* food */
+.food-hero { position: relative; height: 160px; overflow: hidden; }
+.food-hero img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.food-hero .mask { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,40,60,.05) 30%, rgba(10,40,60,.6) 100%); }
+.food-hero .text { position: absolute; left: 20px; bottom: 16px; }
+.food-hero .t1 { color: #fff; font-size: 22px; font-weight: 700; }
+.food-hero .t2 { color: rgba(255,255,255,.9); font-size: 13px; margin-top: 3px; }
+.rest-name { font-size: 17px; font-weight: 700; color: #17323e; }
+.rest-en { font-size: 11px; color: #9aa3ab; margin-top: 1px; }
+.tag { display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: 999px; background: #e6f4f6; color: #0e7490; margin: 6px 6px 0 0; }
+.rest-area { font-size: 12.5px; color: #6b7480; margin: 8px 0 10px; display: block; }
+.dish-list { background: #f8fafb; border-radius: 8px; padding: 10px 12px; margin-bottom: 10px; }
+.dish-item { display: flex; padding: 4px 0; }
+.dish-name { font-size: 13.5px; font-weight: 600; color: #17323e; margin-right: 8px; flex-shrink: 0; }
+.dish-note { flex: 1; font-size: 12px; color: #6b7480; }
+.rest-tip { background: #fdf6e9; border-radius: 8px; padding: 8px 12px; font-size: 12px; color: #9a6b13; }
+.chip-wrap { display: flex; flex-wrap: wrap; }
+.chip { font-size: 12.5px; color: #0e7490; background: #e6f4f6; border-radius: 999px; padding: 5px 13px; margin: 0 7px 7px 0; }
+.chip-warm { color: #c2680c; background: #fdf0e0; }
+.gift-note { font-size: 12px; color: #8a9199; margin-top: 6px; display: block; }
+
+/* info */
+.section-note { font-size: 12px; color: #9aa3ab; margin-bottom: 10px; display: block; }
+.ticket-item { display: flex; align-items: center; padding: 10px 0; border-bottom: 1px solid #f0f3f5; }
+.ticket-item:last-child { border-bottom: none; }
+.ticket-body { flex: 1; margin-right: 8px; }
+.ticket-name { font-size: 13.5px; font-weight: 600; color: #17323e; }
+.ticket-note { font-size: 11.5px; color: #6b7480; margin-top: 2px; }
+.ticket-url { font-size: 10.5px; color: #b0b8c0; margin-top: 3px; word-break: break-all; }
+.ticket-price-wrap { display: flex; flex-direction: column; align-items: flex-end; flex-shrink: 0; }
+.ticket-price { font-size: 13px; font-weight: 700; color: #c2680c; }
+.ticket-copy { font-size: 11px; color: #fff; background: #0e7490; border: none; border-radius: 999px; padding: 4px 12px; margin-top: 5px; cursor: pointer; }
+.massage-img { width: 100%; height: 150px; border-radius: 8px; object-fit: cover; margin-bottom: 10px; display: block; }
+.massage-name { font-size: 15px; font-weight: 700; color: #17323e; margin-bottom: 6px; display: block; }
+.massage-info { background: #f8fafb; border-radius: 8px; padding: 8px 12px; margin-bottom: 8px; }
+.massage-info .m { display: flex; margin-bottom: 4px; }
+.massage-info .dot { color: #0e7490; font-weight: 700; margin-right: 5px; }
+.massage-info .txt { flex: 1; font-size: 12.5px; color: #4a5560; }
+.massage-plan { background: #e6f4f6; border-radius: 8px; padding: 8px 12px; font-size: 12.5px; color: #0e7490; }
+.budget-row { display: flex; align-items: center; padding: 6px 0; border-bottom: 1px dashed #e8edf0; }
+.budget-item { flex: 1; font-size: 13px; color: #17323e; }
+.budget-range { font-size: 13px; font-weight: 600; color: #4a5560; }
+.budget-total { background: #fdf0e0; border-radius: 8px; padding: 8px 12px; margin-top: 8px; font-size: 13px; font-weight: 600; color: #c2680c; }
+.prep-item { padding: 7px 0; border-bottom: 1px solid #f0f3f5; }
+.prep-item:last-child { border-bottom: none; }
+.prep-title { font-size: 13.5px; font-weight: 600; color: #17323e; }
+.prep-desc { font-size: 12.5px; color: #6b7480; margin-top: 2px; }
+.credit { padding: 12px 20px 24px; font-size: 10.5px; color: #b0b8c0; line-height: 1.7; text-align: center; }
+</style>
+</head>
+<body>
+<div class="app">
+
+<!-- ============ 首页 ============ -->
+<section class="page active" id="page-home">
+    <div class="hero">
+        <img src="images/cover.jpg" alt="亚庇日落">
+        <div class="hero-mask"></div>
+        <div class="hero-text">
+            <span class="hero-title">沙巴亚庇团建</span>
+            <span class="hero-date">2026.12.4 - 12.9 · 6天5晚</span>
+            <div class="hero-chips">
+                <span class="hero-chip">✈ 航班已出票</span>
+                <span class="hero-chip">🏨 建议丹绒亚路香格里拉</span>
+                <span class="hero-chip">👥 8-9人</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="meta-grid">
+            <div class="meta-item"><span class="meta-label">天数</span><span class="meta-value">6天5晚</span></div>
+            <div class="meta-item"><span class="meta-label">人数</span><span class="meta-value">8-9人</span></div>
+            <div class="meta-item"><span class="meta-label">目的地</span><span class="meta-value">马来西亚·沙巴·亚庇</span></div>
+            <div class="meta-item"><span class="meta-label">航班</span><span class="meta-value">已出票</span></div>
+        </div>
+    </div>
+
+    <div class="card">
+        <span class="card-title">🌤️ 12月亚庇天气</span>
+        <div class="weather-now">
+            <span class="weather-temp">24-33℃</span>
+            <span class="weather-summary">12月为雨季，以午后短时阵雨为主，来得快去得快</span>
+        </div>
+        <div class="weather-sun"><span>🌅 日出 06:11</span><span>🌇 日落 18:00</span></div>
+        <div class="tip-list">
+            <div class="tip"><span class="tip-dot">·</span><span class="tip-text">上午安排户外、下午安排室内/休整，行程已按此排布</span></div>
+            <div class="tip"><span class="tip-dot">·</span><span class="tip-text">紫外线强：高倍防晒 + 浮潜穿长袖水母衣</span></div>
+            <div class="tip"><span class="tip-dot">·</span><span class="tip-text">神山一日游山上 15-22℃，带薄外套</span></div>
+            <div class="tip"><span class="tip-dot">·</span><span class="tip-text">雨具随身：折叠伞或轻便雨衣</span></div>
+            <div class="tip"><span class="tip-dot">·</span><span class="tip-text">近岛（船程15-20分钟）可正常出海，远岛可能因风浪取消</span></div>
+        </div>
+    </div>
+
+    <div class="card">
+        <span class="card-title">🗓️ 行程速览</span>
+        <div id="overview"></div>
+    </div>
+
+    <div class="card">
+        <span class="card-title">✨ 本次团建亮点</span>
+        <div class="hl-item"><span class="hl-icon">🌅</span><div><div class="hl-title">世界前三日落</div><div class="hl-desc">丹绒亚路海滩+酒店日落酒吧，每天 17:15 就位</div></div></div>
+        <div class="hl-item"><span class="hl-icon">🏝️</span><div><div class="hl-title">近岛浮潜</div><div class="hl-desc">东姑阿都拉曼公园双岛游，船程仅15分钟</div></div></div>
+        <div class="hl-item"><span class="hl-icon">⛰️</span><div><div class="hl-title">神山一日游</div><div class="hl-desc">世界自然遗产京那巴鲁山+温泉+奶牛场</div></div></div>
+        <div class="hl-item"><span class="hl-icon">🚢</span><div><div class="hl-title">日落游轮晚宴</div><div class="hl-desc">自助餐+乐队+传统舞蹈，团建仪式感拉满</div></div></div>
+        <div class="hl-item"><span class="hl-icon">💆</span><div><div class="hl-title">按摩舒缓</div><div class="hl-desc">小红书口碑 ZEN Borneo，晒后热石按摩</div></div></div>
+    </div>
+
+    <div class="card">
+        <span class="card-title">🧭 快捷入口</span>
+        <div class="quick-row">
+            <button class="quick-btn" onclick="switchTab('schedule')">📅 逐日行程</button>
+            <button class="quick-btn" onclick="switchTab('food')">🍜 吃什么</button>
+            <button class="quick-btn" onclick="switchTab('info')">🎫 购票与预算</button>
+        </div>
+    </div>
+</section>
+
+<!-- ============ 行程 ============ -->
+<section class="page" id="page-schedule">
+    <div class="day-tabs" id="day-tabs"></div>
+    <div id="day-detail"></div>
+</section>
+
+<!-- ============ 美食 ============ -->
+<section class="page" id="page-food">
+    <div class="food-hero">
+        <img src="images/seafood.jpg" alt="海鲜大餐">
+        <div class="mask"></div>
+        <div class="text">
+            <div class="t1">亚庇吃什么</div>
+            <div class="t2">小红书口碑店 · 必点菜清单 · 已固定到每日行程</div>
+        </div>
+    </div>
+    <div id="food-list"></div>
+
+    <div class="card">
+        <span class="card-title">🥤 小吃饮料随手补</span>
+        <div class="chip-wrap">
+            <span class="chip">三色奶茶</span><span class="chip">ABC 红豆冰</span><span class="chip">椰子布丁</span><span class="chip">拉茶</span><span class="chip">沙嗲串</span><span class="chip">炸香蕉</span><span class="chip">印度煎饼</span><span class="chip">椰浆饭</span>
+        </div>
+    </div>
+
+    <div class="card">
+        <span class="card-title">🎁 伴手礼清单</span>
+        <div class="chip-wrap">
+            <span class="chip chip-warm">Beryl's 巧克力</span><span class="chip chip-warm">旧街场白咖啡</span><span class="chip chip-warm">沙巴红茶</span><span class="chip chip-warm">榴莲干</span><span class="chip chip-warm">手工编织包（周日市集淘）</span>
+        </div>
+        <span class="gift-note">加雅街和 Imago 商场都能买齐；周日市集的手作更特别</span>
+    </div>
+</section>
+
+<!-- ============ 实用 ============ -->
+<section class="page" id="page-info">
+    <div class="card">
+        <span class="card-title">🎫 购票与预订清单</span>
+        <span class="section-note">点击「复制」存链接，或直接点蓝字链接打开购买页</span>
+        <div id="ticket-list"></div>
+    </div>
+
+    <div class="card">
+        <span class="card-title">💆 按摩安排</span>
+        <img class="massage-img" src="images/massage.jpg" alt="按摩">
+        <span class="massage-name">ZEN Borneo Reflexology &amp; Spa</span>
+        <div class="massage-info">
+            <div class="m"><span class="dot">·</span><span class="txt">位置：Asia City Complex 二楼（Imago商场步行15分钟，酒店打车约10分钟）</span></div>
+            <div class="m"><span class="dot">·</span><span class="txt">营业：12:00-24:00（最晚预约22:00），中文可沟通</span></div>
+            <div class="m"><span class="dot">·</span><span class="txt">项目：足部按摩60分钟 RM98起 / 全身按摩90分钟 / 全身按摩+热石 RM158</span></div>
+            <div class="m"><span class="dot">·</span><span class="txt">亮点：沙巴本地理疗师 + 自制姜茶 + 2人以上套餐送按摩当日单程机场接送</span></div>
+        </div>
+        <div class="massage-plan">📌 安排在 Day2 跳岛回来 16:30-18:00，晒后舒缓再看日落；Day5 上午可加练一场</div>
+    </div>
+
+    <div class="card">
+        <span class="card-title">💰 人均预算（不含机票酒店）</span>
+        <div id="budget-list"></div>
+        <div class="budget-total">※ 不含机票与酒店。合计约 ¥2,600-3,400/人</div>
+    </div>
+
+    <div class="card">
+        <span class="card-title">🧳 行前准备</span>
+        <div class="prep-item"><div class="prep-title">免签入境</div><div class="prep-desc">中马互免签证，30天内免签；护照有效期需到2027年6月4日之后</div></div>
+        <div class="prep-item"><div class="prep-title">MDAC 入境卡</div><div class="prep-desc">12.1-12.4 每人在线填写，截图/打印确认信；边检可能查回程机票+酒店订单</div></div>
+        <div class="prep-item"><div class="prep-title">钱与支付</div><div class="prep-desc">人均换 200-300 马币现金（市集小摊用）；大额刷卡/支付宝</div></div>
+        <div class="prep-item"><div class="prep-title">打车</div><div class="prep-desc">下载 Grab（类似滴滴），可绑支付宝；机场→酒店 RM15-30</div></div>
+        <div class="prep-item"><div class="prep-title">电话卡</div><div class="prep-desc">淘宝提前买 CelcomDigi / Hotlink，约¥30-50 含流量</div></div>
+        <div class="prep-item"><div class="prep-title">插座</div><div class="prep-desc">英标三孔，带转换头；充电宝≤2万毫安随身带</div></div>
+        <div class="prep-item"><div class="prep-title">装备清单</div><div class="prep-desc">防晒霜、水母衣、驱蚊液、晕船药、雨伞、泳衣、防滑拖鞋、薄外套（神山用）</div></div>
+        <div class="prep-item"><div class="prep-title">亚航注意</div><div class="prep-desc">廉航仅含7kg手提；需托运提前官网购买（比机场便宜一半以上）；宝安T3不大，提前1.5-2小时到机场即可</div></div>
+    </div>
+
+    <div class="credit">图片来源：Unsplash（Fahrul Azmi 等）、Pexels（Aditya Addanki、Shkrabaanthony、Makafood 等），基于免费授权使用</div>
+</section>
+
+</div>
+
+<!-- ============ 底部导航 ============ -->
+<nav class="tabbar">
+    <button class="tab active" data-page="home" onclick="switchTab('home')"><span class="ticon">🏠</span>首页</button>
+    <button class="tab" data-page="schedule" onclick="switchTab('schedule')"><span class="ticon">📅</span>行程</button>
+    <button class="tab" data-page="food" onclick="switchTab('food')"><span class="ticon">🍜</span>美食</button>
+    <button class="tab" data-page="info" onclick="switchTab('info')"><span class="ticon">🎫</span>实用</button>
+</nav>
+
+<script>
+var DAYS = [
+{
+    id:1, name:'D1 12.4', date:'12月4日 周五', theme:'抵达 · 欢迎晚宴', img:'images/cover.jpg',
+    weather:'32-33℃ · 少云', transport:'飞机（深圳-亚庇）+ Grab 打车', ticket:'航班已出票；MDAC 入境卡 12.1-12.4 填写',
+    meals:[
+        {type:'午餐', name:'机场/飞机简餐', note:'亚航餐食可提前官网订，比机上现买便宜'},
+        {type:'晚餐', name:'酒店日落酒吧 Sunset Bar · 欢迎晚宴', note:'边吃边看世界级日落，第一天不折腾'}
+    ],
+    timeline:[
+        {time:'11:40', title:'宝安机场 T3 集合值机', desc:'提前约2小时到即可（宝安T3不大，亚航国际线提前1.5-2小时足够），13:40 起飞（AK1521 直飞3小时）'},
+        {time:'16:45', title:'落地亚庇 T1', desc:'入境约40-60分钟，出示护照+MDAC确认信+回程机票'},
+        {time:'18:00', title:'Grab 打车到酒店', desc:'约10分钟车程，RM15-30，8-9人分2-3辆车'},
+        {time:'19:00', title:'日落酒吧欢迎晚宴', desc:'酒店 Sunset Bar，世界七大日落观赏地之一，第一天不出远门'}
+    ]
+},
+{
+    id:2, name:'D2 12.5', date:'12月5日 周六', theme:'跳岛浮潜 · 按摩舒缓', img:'images/island.jpg',
+    weather:'32℃ · 少云', transport:'一日游含酒店接送（面包车）；傍晚打车', ticket:'Klook 跳岛双岛游（出发前3天订，可免费取消）；ZEN Borneo 按摩',
+    meals:[
+        {type:'早餐', name:'酒店自助早餐', note:'含在房费，出发前吃饱'},
+        {type:'午餐', name:'岛上简餐', note:'含在一日游行程内'},
+        {type:'晚餐', name:'佑记肉骨茶（加雅街）', note:'药材肉骨茶+卤水拼盘+油条，人均 RM20-30'}
+    ],
+    timeline:[
+        {time:'08:30', title:'酒店出发 → 哲斯顿码头', desc:'一日游含接送，码头距酒店仅10分钟'},
+        {time:'09:30', title:'沙比岛浮潜', desc:'东姑阿都拉曼公园，看鱼群珊瑚，可自费玩香蕉船/拖曳伞'},
+        {time:'12:30', title:'马穆迪岛 + 岛上午餐', desc:'安静小岛，玻璃海浮潜，含简餐'},
+        {time:'15:30', title:'返回酒店冲凉休息', desc:'泳池回血，晒后补水'},
+        {time:'16:30', title:'💆 ZEN Borneo 按摩', desc:'小红书口碑店，足部/全身按摩60分钟约RM98起，晒后舒缓（详见实用页）'},
+        {time:'18:00', title:'丹绒亚路海滩看日落', desc:'17:15前到占位，或在酒店日落酒吧点杯饮品看'},
+        {time:'19:30', title:'晚餐：加雅街佑记肉骨茶', desc:'打车10分钟，人均RM20-30'}
+    ]
+},
+{
+    id:3, name:'D3 12.6', date:'12月6日 周日', theme:'城市文化日 · 海鲜大餐', img:'images/seafood.jpg',
+    weather:'32℃ · 局部阵雨', transport:'全天 Grab 打车（市区景点间10-20分钟）', ticket:'Klook 马里马里文化村半日游（选下午场）',
+    meals:[
+        {type:'早餐', name:'酒店自助早餐', note:'出门前垫一口'},
+        {type:'早午餐', name:'怡丰茶室（加雅街）', note:'招牌叻沙+牛杂面+桔子冰，周日排队约20-30分钟'},
+        {type:'晚餐', name:'大茄来海鲜楼 · 团建海鲜大宴', note:'奶油老虎虾+咸蛋黄蟹+椒盐濑尿虾，人均 RM80-120，17:30 前到避开排队'}
+    ],
+    timeline:[
+        {time:'08:30', title:'加雅街周日市集', desc:'仅周日有！手作、小吃、水果摊，淘伴手礼的好机会'},
+        {time:'10:30', title:'怡丰茶室早午餐', desc:'招牌叻沙+牛杂面+桔子冰，排队旺建议早到'},
+        {time:'11:30', title:'水上清真寺 + 沙巴大学粉红清真寺', desc:'打卡拍照（入清真寺需租借罩袍，着装不露肩膝）'},
+        {time:'13:30', title:'回酒店午休', desc:'午后阵雨时段，正好躲雨'},
+        {time:'14:30', title:'马里马里原住民文化村', desc:'五大部落屋、吹箭体验、传统歌舞、竹筒饭试吃（下午场约3小时）'},
+        {time:'19:00', title:'🦀 大茄来海鲜晚宴', desc:'奶油老虎虾+咸蛋黄蟹+椒盐濑尿虾，人均RM80-120'}
+    ]
+},
+{
+    id:4, name:'D4 12.7', date:'12月7日 周一', theme:'神山自然日', img:'images/mountain.jpg',
+    weather:'市区32℃ · 山上15-22℃', transport:'一日游含酒店接送、中文导游（单程约2小时）', ticket:'Klook 神山公园+波令温泉一日游（含接送，免费取消）',
+    meals:[
+        {type:'早餐', name:'酒店自助早餐', note:'07:30 出发，前一天和前台确认开餐时间'},
+        {type:'午餐', name:'神山山景自助午餐', note:'含在一日游行程内，神山正面景观位'},
+        {type:'晚餐', name:'双天海鲜楼（市中心）', note:'黑胡椒蟹+咸蛋黄鱿鱼，人均 RM70-100'},
+        {type:'宵夜', name:'天桥底榴莲街', note:'猫山王/红虾，人均 RM30-60；吃完榴莲当天别喝酒'}
+    ],
+    timeline:[
+        {time:'07:30', title:'酒店出发', desc:'沿路看神山云海，车上补觉'},
+        {time:'09:30', title:'神山公园（世界自然遗产）', desc:'京那巴鲁山4095米观景、植物园漫步，平地漫步不累'},
+        {time:'12:00', title:'山景自助午餐', desc:'含在行程内，神山正面景观位'},
+        {time:'14:00', title:'波令温泉 + 树冠吊桥', desc:'泡脚解乏，吊桥离地40米（恐高可在下面等）'},
+        {time:'15:30', title:'Desa 奶牛场', desc:'现挤鲜奶+牛奶冰淇淋，神山背景拍团体照'},
+        {time:'17:30', title:'返程市区', desc:'19:30 到市区，双天海鲜楼晚餐+榴莲街宵夜'}
+    ]
+},
+{
+    id:5, name:'D5 12.8', date:'12月8日 周二', theme:'休整 · 游轮收官晚宴', img:'images/cruise.jpg',
+    weather:'32℃ · 少云', transport:'上午自由；16:15 打车去丝绸港湾码头（10分钟）', ticket:'北婆罗洲游轮（提前订，9人可询团体价 +60 12-852 8009）',
+    meals:[
+        {type:'早餐', name:'酒店自助早餐', note:'睡到自然醒慢慢吃'},
+        {type:'午餐', name:'酒店餐厅', note:'下午可去 Imago 商场喝下午茶'},
+        {type:'晚餐', name:'游轮国际自助晚餐', note:'含在船票内，茶咖啡软饮畅饮，酒精另购'}
+    ],
+    timeline:[
+        {time:'上午', title:'睡到自然醒', desc:'酒店泳池、私人沙滩、CHI水疗（SPA提前一天预约）'},
+        {time:'12:00', title:'酒店午餐', desc:'下午自由活动：Imago商场购物 / 加练一场按摩'},
+        {time:'16:15', title:'出发前往丝绸港湾码头', desc:'Sutera Harbour Marina，距酒店10分钟'},
+        {time:'17:10', title:'登船 🚢', desc:'17:30 启航，三层豪华双体船'},
+        {time:'17:30', title:'日落晚餐游轮（团建收官晚宴）', desc:'国际自助晚餐+现场乐队+沙巴传统舞蹈，海上无遮挡日落'},
+        {time:'19:45', title:'下船回酒店', desc:'收拾行李，早休息'}
+    ]
+},
+{
+    id:6, name:'D6 12.9', date:'12月9日 周三', theme:'返程', img:'images/massage.jpg',
+    weather:'32℃ · 少云', transport:'Grab 打车到机场（10分钟）→ 飞机', ticket:'航班已出票；无托运额度需提前在亚航官网购买',
+    meals:[
+        {type:'早餐', name:'酒店打包早餐/早早餐', note:'提前一天和前台确认'},
+        {type:'午餐', name:'飞机简餐', note:'提前官网订，或落地深圳再吃'}
+    ],
+    timeline:[
+        {time:'06:15', title:'起床', desc:'提前和前台确认早早餐/打包早餐'},
+        {time:'06:50', title:'集合出发去机场', desc:'国际值机起飞前1小时关闭，07:15 前到机场（提前约2小时，酒店距机场仅10分钟）'},
+        {time:'09:20', title:'AK1520 起飞', desc:'直飞3小时15分钟'},
+        {time:'12:35', title:'落地深圳宝安 T3', desc:'解散回家，团建圆满 🎉'}
+    ]
+}
+];
+
+var RESTAURANTS = [
+    {name:'大茄来海鲜楼', en:'Welcome Seafood Restaurant', tags:['Day3 晚餐','团建主宴','人均 RM80-120'], area:'丹绒亚路（距酒店打车5分钟）',
+     dishes:[['奶油老虎虾','招牌必点，奶香浓郁'],['咸蛋黄炒蟹','咸蛋黄控别错过'],['椒盐濑尿虾','外酥里嫩'],['清蒸石斑','海鲜新鲜的试金石']],
+     tip:'17:30 前到可避开排队，8-9人建议提前电话订位'},
+    {name:'怡丰茶室', en:'Yee Fung Laksa', tags:['Day3 早午餐','老字号','人均 RM15-25'], area:'加雅街',
+     dishes:[['叻沙 Laksa','招牌，椰香咖喱汤底配米粉'],['牛杂面','炖得软烂入味'],['桔子冰','解腻神器']],
+     tip:'周日市集上午人多，排队约20-30分钟，可分头排'},
+    {name:'佑记肉骨茶', en:'Yu Kee Bak Kut Teh', tags:['Day2 晚餐','药材汤底','人均 RM20-30'], area:'加雅街',
+     dishes:[['药材肉骨茶','胡椒药材香，配油条'],['卤水拼盘','卤蛋豆腐入味']],
+     tip:'晚上去，加雅街夜市氛围刚好'},
+    {name:'富源咖啡店', en:'Foo Phin Coffee', tags:['备选早餐','南洋风','人均 RM10-15'], area:'加雅街',
+     dishes:[['咖椰牛油吐司','炭烤吐司夹咖椰酱+冰牛油'],['海南咖啡','拉得又滑又香'],['半生熟蛋','配吐司经典吃法']],
+     tip:'吃不惯酒店自助时的换口味选择，加雅街步行可达'},
+    {name:'双天海鲜楼', en:'Double Star Seafood', tags:['Day4 晚餐','人均 RM70-100'], area:'市中心',
+     dishes:[['黑胡椒蟹','本地人也认的味道'],['咸蛋黄鱿鱼','下酒好菜']],
+     tip:'神山一日游回程顺路，大茄来的平替'},
+    {name:'天桥底榴莲街', en:'Durian Street', tags:['Day4 宵夜','人均 RM30-60'], area:'市中心海滨天桥底',
+     dishes:[['猫山王','苦香回甘，果肉绵密'],['红虾','偏甜口，初尝友好']],
+     tip:'双天吃完散步就到；吃完榴莲当天别喝酒'}
+];
+
+var TICKETS = [
+    ['跳岛：沙比/马努干/马穆迪岛（含接送+午餐）','Klook · 出发前3天订 · 24h前免费取消','¥360-534','https://www.klook.cn/zh-CN/experiences/list/sabah-water-activities/c66-cate121'],
+    ['马里马里原住民文化村半日游','Klook · 选12.6下午场','¥211起','https://www.klook.cn/zh-CN/destination/c364959-kota-kinabalu/'],
+    ['神山公园+波令温泉一日游（含接送）','Klook · 选12.7 · 免费取消','¥348-418','https://www.klook.cn/zh-CN/experiences/list/sabah-water-activities/c66-cate121'],
+    ['北婆罗洲日落晚餐游轮','官网/携程 · 12.8晚 · 团体询价 +60 12-852 8009','RM255-380','https://northborneocruises.com/sunset-dinner-cruise'],
+    ['ZEN Borneo 按摩','Klook搜「ZEN Borneo」· 建议订Day2 16:30场','RM98起','https://www.klook.cn/zh-CN/destination/c364959-kota-kinabalu/'],
+    ['香格里拉酒店（丹绒亚路）','官网会员价更低 · 团体价 reservations.tah@shangri-la.com','约¥1200-1450/间/晚','https://www.shangri-la.com/cn/kotakinabalu/tanjungaruresort/'],
+    ['MDAC 电子入境卡（免费，必填）','12.1-12.4 每人填写 · 保存确认信','免费','https://imigresen-online.imi.gov.my/mdac/main']
+];
+
+var BUDGET = [
+    ['跳岛双岛游（含午餐接送）','¥360-534'],
+    ['马里马里文化村','¥211'],
+    ['神山一日游','¥348-418'],
+    ['日落晚餐游轮','¥410-536'],
+    ['按摩','¥149-276'],
+    ['餐饮（6天，含两顿海鲜大餐）','¥800-1000'],
+    ['市内交通+通信+杂项','¥300-400']
+];
+
+var currentDay = 1;
+
+function esc(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+function renderOverview() {
+    var html = '';
+    DAYS.forEach(function(d) {
+        html += '<div class="day-row" onclick="switchTab(\'schedule\');switchDay(' + d.id + ')">' +
+            '<img class="day-img" src="' + d.img + '" alt="">' +
+            '<div class="day-info"><div class="day-head"><span class="day-label">' + d.name.split(' ')[0] + '</span><span class="day-date">' + d.date.replace('12月','12.') + '</span></div>' +
+            '<div class="day-theme">' + esc(d.theme) + '</div><div class="day-brief">' + esc(d.timeline[0].title + ' · ' + (d.timeline[1] ? d.timeline[1].title : '')) + '</div></div>' +
+            '<span class="day-arrow">›</span></div>';
+    });
+    document.getElementById('overview').innerHTML = html;
+}
+
+function renderDayTabs() {
+    var html = '';
+    DAYS.forEach(function(d) {
+        html += '<button class="day-tab' + (d.id === currentDay ? ' active' : '') + '" onclick="switchDay(' + d.id + ')">' + d.name + '</button>';
+    });
+    document.getElementById('day-tabs').innerHTML = html;
+}
+
+function renderDay() {
+    var d = null;
+    DAYS.forEach(function(x) { if (x.id === currentDay) d = x; });
+    var html = '<div class="day-hero"><img src="' + d.img + '" alt=""><div class="mask"></div><div class="text">' +
+        '<div class="d">' + d.date + '</div><div class="t">' + esc(d.theme) + '</div></div></div>';
+    html += '<div class="card"><div class="meta-row"><span class="meta-label">🌤️ 天气</span><span class="meta-value">' + d.weather + '</span></div>' +
+        '<div class="meta-row"><span class="meta-label">🚌 交通</span><span class="meta-value">' + esc(d.transport) + '</span></div>' +
+        '<div class="meta-row"><span class="meta-label">🎫 购票</span><span class="meta-value">' + esc(d.ticket) + '</span></div></div>';
+    html += '<div class="card"><span class="card-title">🍽️ 当日吃什么</span>';
+    d.meals.forEach(function(m) {
+        html += '<div class="meal-row"><span class="meal-type">' + m.type + '</span><div><div class="meal-name">' + esc(m.name) + '</div><div class="meal-note">' + esc(m.note) + '</div></div></div>';
+    });
+    html += '</div>';
+    html += '<div class="card"><span class="card-title">⏰ 当日安排</span>';
+    d.timeline.forEach(function(t) {
+        html += '<div class="tl-item"><div class="tl-left"><span class="tl-time">' + t.time + '</span><div class="tl-line"></div></div>' +
+            '<div class="tl-body"><div class="tl-title">' + esc(t.title) + '</div><div class="tl-desc">' + esc(t.desc) + '</div></div></div>';
+    });
+    html += '</div>';
+    document.getElementById('day-detail').innerHTML = html;
+}
+
+function renderFood() {
+    var html = '';
+    RESTAURANTS.forEach(function(r) {
+        html += '<div class="card"><div class="rest-name">' + r.name + '</div><div class="rest-en">' + r.en + '</div><div>';
+        r.tags.forEach(function(t) { html += '<span class="tag">' + t + '</span>'; });
+        html += '</div><span class="rest-area">📍 ' + r.area + '</span><div class="dish-list">';
+        r.dishes.forEach(function(d) { html += '<div class="dish-item"><span class="dish-name">🍽️ ' + d[0] + '</span><span class="dish-note">' + d[1] + '</span></div>'; });
+        html += '</div><div class="rest-tip">💡 ' + r.tip + '</div></div>';
+    });
+    document.getElementById('food-list').innerHTML = html;
+}
+
+function renderTickets() {
+    var html = '';
+    TICKETS.forEach(function(t) {
+        html += '<div class="ticket-item"><div class="ticket-body">' +
+            '<div class="ticket-name">' + esc(t[0]) + '</div><div class="ticket-note">' + esc(t[1]) + '</div>' +
+            '<a class="ticket-url" href="' + t[3] + '" target="_blank" rel="noopener" style="color:#4aa3b8;text-decoration:underline;">' + esc(t[3]) + '</a></div>' +
+            '<div class="ticket-price-wrap"><span class="ticket-price">' + esc(t[2]) + '</span>' +
+            '<button class="ticket-copy" onclick="copyLink(\'' + t[3] + '\')">复制</button></div></div>';
+    });
+    document.getElementById('ticket-list').innerHTML = html;
+}
+
+function renderBudget() {
+    var html = '';
+    BUDGET.forEach(function(b) {
+        html += '<div class="budget-row"><span class="budget-item">' + b[0] + '</span><span class="budget-range">' + b[1] + '</span></div>';
+    });
+    document.getElementById('budget-list').innerHTML = html;
+}
+
+function switchTab(page) {
+    document.querySelectorAll('.page').forEach(function(p) { p.classList.remove('active'); });
+    document.getElementById('page-' + page).classList.add('active');
+    document.querySelectorAll('.tabbar .tab').forEach(function(t) { t.classList.toggle('active', t.dataset.page === page); });
+    window.scrollTo(0, 0);
+}
+
+function switchDay(id) {
+    currentDay = id;
+    renderDayTabs();
+    renderDay();
+}
+
+function copyLink(url) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(function() { alert('链接已复制：' + url); });
+    } else {
+        var input = document.createElement('textarea');
+        input.value = url;
+        document.body.appendChild(input);
+        input.select();
+        document.execCommand('copy');
+        document.body.removeChild(input);
+        alert('链接已复制：' + url);
+    }
+}
+
+renderOverview();
+renderDayTabs();
+renderDay();
+renderFood();
+renderTickets();
+renderBudget();
+</script>
+</body>
+</html>

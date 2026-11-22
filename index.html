@@ -358,20 +358,21 @@ var DAYS = [
 },
 {
     id:4, name:'D4 12.7', date:'12月7日 周一', theme:'神山自然日', img:'images/mountain.jpg',
-    weather:'市区32℃ · 山上15-22℃', transport:'一日游含酒店接送、中文导游（单程约2小时）', ticket:'Klook 神山公园+波令温泉一日游（含接送，免费取消）',
+    weather:'市区32℃ · 山上15-22℃', transport:'拼团一日游 07:00 统一发车（全行程唯一早起日），含酒店接送、中文导游，单程约2小时', ticket:'Klook 神山+波令+Desa 拼团一日游（¥378起，含接送午餐，免费取消）',
     meals:[
-        {type:'早餐', name:'酒店自助早餐', note:'09:00 出发，从容吃早餐'},
+        {type:'早餐', name:'酒店自助早餐', note:'起大早，提前和前台确认开餐时间，赶不上就打包'},
         {type:'午餐', name:'神山山景自助午餐', note:'含在一日游行程内，神山正面景观位'},
-        {type:'晚餐', name:'双天海鲜楼（市中心海滨）', note:'黑胡椒蟹+咸蛋黄鱿鱼，人均 RM70-100，20:00 晚市正当时'},
+        {type:'晚餐', name:'双天海鲜楼（市中心海滨）', note:'黑胡椒蟹+咸蛋黄鱿鱼，人均 RM70-100，19:30 晚市开吃'},
         {type:'宵夜', name:'天桥底榴莲街', note:'菲律宾市场旁海滨，猫山王/红虾，人均 RM30-60；吃完榴莲当天别喝酒'}
     ],
     timeline:[
-        {time:'09:00', title:'酒店出发', desc:'一日游含接送、中文导游，单程约2小时，车上补觉（想看神山云海可选早场）'},
-        {time:'11:00', title:'神山公园（世界自然遗产）', desc:'Ranau 89300，京那巴鲁山4095米观景、植物园漫步，平地漫步不累'},
-        {time:'13:30', title:'山景自助午餐', desc:'含在行程内，神山正面景观位'},
-        {time:'15:30', title:'波令温泉 + 树冠吊桥', desc:'Poring, Ranau，泡脚解乏，吊桥离地40米（恐高可在下面等）'},
-        {time:'17:00', title:'Desa 奶牛场', desc:'Kundasang 神山脚下，现挤鲜奶+牛奶冰淇淋，神山背景拍团体照'},
-        {time:'17:45', title:'返程市区', desc:'约19:45 到市区，正好赶上晚市海鲜'}
+        {time:'06:50', title:'酒店大堂集合上车', desc:'拼团统一 07:00 发车——全行程唯一早起日，上车补觉（单程约2小时）'},
+        {time:'09:15', title:'Pekan Nabalu 观景台（途经）', desc:'半山观景台休息20分钟，远眺神山，水果山货比市区便宜'},
+        {time:'10:00', title:'神山公园（世界自然遗产）', desc:'Ranau 89300，京那巴鲁山4095米观景、植物园漫步，平地漫步不累'},
+        {time:'12:30', title:'山景自助午餐', desc:'含在行程内，神山正面景观位'},
+        {time:'14:00', title:'波令温泉 + 树冠吊桥', desc:'Poring, Ranau，泡脚解乏，吊桥离地40米（恐高可在下面等）'},
+        {time:'16:00', title:'Desa 奶牛场', desc:'Kundasang 神山脚下，现挤鲜奶+牛奶冰淇淋，神山背景拍团体照'},
+        {time:'17:00', title:'返程市区', desc:'约19:00 回酒店，稍作休整去吃晚市海鲜'}
     ]
 },
 {
@@ -422,16 +423,16 @@ var RESTAURANTS = [
      tip:'吃不惯酒店自助时的换口味选择，加雅街步行可达'},
     {name:'双天海鲜楼', en:'Double Star Seafood', tags:['Day4 晚餐','人均 RM70-100'], area:'市中心海滨一带（Grab 搜「双天海鲜楼」直达）',
      dishes:[['黑胡椒蟹','本地人也认的味道'],['咸蛋黄鱿鱼','下酒好菜']],
-     tip:'神山一日游回程顺路，20:00 晚市开吃'},
+     tip:'神山一日游回程顺路，19:30 到店开吃'},
     {name:'天桥底榴莲街', en:'Durian Street', tags:['Day4 宵夜','人均 RM30-60'], area:'市中心海滨天桥底，菲律宾市场旁（傍晚出摊）',
      dishes:[['猫山王','苦香回甘，果肉绵密'],['红虾','偏甜口，初尝友好']],
      tip:'双天吃完散步就到；吃完榴莲当天别喝酒'}
 ];
 
 var TICKETS = [
-    ['跳岛：沙比/马努干/马穆迪岛（含接送+午餐）','预订：Klook 搜「沙比岛 跳岛」→ 选 12.5 含酒店接送套餐 → 下单备注酒店名；24h 前可免费取消','¥360-534','https://www.klook.cn/zh-CN/experiences/list/sabah-water-activities/c66-cate121'],
+    ['跳岛：沙比/马努干/马穆迪岛（含接送+午餐）','预订：Klook 选 12.5 含酒店接送套餐 → 下单备注酒店名 Shangri-La Tanjung Aru；24h 前可免费取消。推荐理由：9人团位提前锁定、旺季免排队、平台客服兜底','¥360-534','https://www.klook.cn/zh-CN/activity/107137-manukan-sapi-island-hopping-massage-experience-kota-kinabalu'],
     ['马里马里原住民文化村半日游','预订：Klook 搜「马里马里」→ 选 12.6 下午场（含接送）','¥211起','https://www.klook.cn/zh-CN/destination/c364959-kota-kinabalu/'],
-    ['神山公园+波令温泉一日游（含接送）','预订：Klook 搜「神山 波令温泉」→ 选 12.7 中文团、9点出发档；免费取消','¥348-418','https://www.klook.cn/zh-CN/experiences/list/sabah-water-activities/c66-cate121'],
+    ['神山公园+波令温泉+Desa一日游（含接送）','预订：Klook 选 12.7「公园+温泉+Desa 农场」方案 → 下单备注酒店名；拼团统一 07:00 发车；免费取消。推荐理由：神山无公共交通，拼团含门票午餐中文导游，比自包车省心且价格相当','¥378-477','https://www.klook.com/zh-CN/activity/1763-kinabalu-park-poring-hot-spring-sabah/'],
     ['北婆罗洲日落晚餐游轮','预订：携程搜「北婆罗洲游轮」或官网下单（选 12.8）；9 人致电 +60 12-852 8009 询团体价；遇雨可改期','RM255-380','https://northborneocruises.com/sunset-dinner-cruise'],
     ['ZEN Borneo 按摩','预订：Klook 搜「ZEN Borneo」→ 选 60 分钟档、预约时间填 16:30；也可直接到店（12:00-24:00，最晚预约22:00）','RM98起','https://www.klook.cn/zh-CN/destination/c364959-kota-kinabalu/'],
     ['香格里拉酒店（丹绒亚路）','预订：官网注册会员价下单，或携程比价；9 人团体价发邮件 reservations.tah@shangri-la.com / 电话 +60-88-327-888','约¥1200-1450/间/晚','https://www.shangri-la.com/cn/kotakinabalu/tanjungaruresort/'],
@@ -441,7 +442,7 @@ var TICKETS = [
 var BUDGET = [
     ['跳岛双岛游（含午餐接送）','¥360-534'],
     ['马里马里文化村','¥211'],
-    ['神山一日游','¥348-418'],
+    ['神山一日游','¥378-477'],
     ['日落晚餐游轮','¥410-536'],
     ['按摩','¥149-276'],
     ['餐饮（6天，含两顿海鲜大餐）','¥800-1000'],

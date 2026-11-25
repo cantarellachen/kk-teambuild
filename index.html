@@ -164,7 +164,8 @@ body {
             <span class="hero-date">2026.12.4 - 12.9 · 6天5晚</span>
             <div class="hero-chips">
                 <span class="hero-chip">✈ 航班已出票</span>
-                <span class="hero-chip">🏨 建议丹绒亚路香格里拉</span>
+                <span class="hero-chip">🏨 万豪4晚 + 香格里拉1晚</span>
+                <span class="hero-chip">🚐 包车+导游全程</span>
                 <span class="hero-chip">👥 8-9人</span>
             </div>
         </div>
@@ -202,11 +203,11 @@ body {
 
     <div class="card">
         <span class="card-title">✨ 本次团建亮点</span>
-        <div class="hl-item"><span class="hl-icon">🌅</span><div><div class="hl-title">世界前三日落</div><div class="hl-desc">丹绒亚路海滩+酒店日落酒吧，每天 17:15 就位</div></div></div>
-        <div class="hl-item"><span class="hl-icon">🏝️</span><div><div class="hl-title">近岛浮潜</div><div class="hl-desc">东姑阿都拉曼公园双岛游，船程仅15分钟</div></div></div>
-        <div class="hl-item"><span class="hl-icon">⛰️</span><div><div class="hl-title">神山一日游</div><div class="hl-desc">世界自然遗产京那巴鲁山+温泉+奶牛场</div></div></div>
-        <div class="hl-item"><span class="hl-icon">🚢</span><div><div class="hl-title">日落游轮晚宴</div><div class="hl-desc">自助餐+乐队+传统舞蹈，团建仪式感拉满</div></div></div>
-        <div class="hl-item"><span class="hl-icon">💆</span><div><div class="hl-title">按摩舒缓</div><div class="hl-desc">小红书口碑 ZEN Borneo，晒后热石按摩</div></div></div>
+        <div class="hl-item"><span class="hl-icon">🚐</span><div><div class="hl-title">包车+导游全程</div><div class="hl-desc">每天10h用车+全天导游，人均4000+全包服务</div></div></div>
+        <div class="hl-item"><span class="hl-icon">🏝️</span><div><div class="hl-title">跳岛浮潜</div><div class="hl-desc">东姑阿都拉曼海洋公园，含海岛自助午餐</div></div></div>
+        <div class="hl-item"><span class="hl-icon">🌿</span><div><div class="hl-title">CABANA 营地半日</div><div class="hl-desc">长鼻猴游船+海滩日落+烧烤+铁花秀+萤火虫星海</div></div></div>
+        <div class="hl-item"><span class="hl-icon">⛰️</span><div><div class="hl-title">神山一日游</div><div class="hl-desc">世界自然遗产+奶牛牧场+鱼疗+大王花+土族茶点</div></div></div>
+        <div class="hl-item"><span class="hl-icon">🌅</span><div><div class="hl-title">香格里拉日落收官</div><div class="hl-desc">入住丹绒亚路，日落桨板+日落餐吧（世界前三日落）</div></div></div>
     </div>
 
     <div class="card">
@@ -271,13 +272,13 @@ body {
             <div class="m"><span class="dot">·</span><span class="txt">项目：足部按摩60分钟 RM98起 / 全身按摩90分钟 / 全身按摩+热石 RM158</span></div>
             <div class="m"><span class="dot">·</span><span class="txt">亮点：沙巴本地理疗师 + 自制姜茶 + 2人以上套餐送按摩当日单程机场接送</span></div>
         </div>
-        <div class="massage-plan">📌 安排在 Day2 跳岛回来 16:30-18:00，晒后舒缓再看日落；Day5 上午可加练一场</div>
+        <div class="massage-plan">📌 新行程未排按摩，属可选加项：想加建议 D2 跳岛回来 16:30-18:00（晒后舒缓），直接到店或 Klook 提前约时间</div>
     </div>
 
     <div class="card">
-        <span class="card-title">💰 人均预算（不含机票酒店）</span>
+        <span class="card-title">💰 人均预算（不含机票）</span>
         <div id="budget-list"></div>
-        <div class="budget-total">※ 不含机票与酒店。合计约 ¥2,600-3,400/人</div>
+        <div class="budget-total">※ 不含机票；酒店按两人一间计。合计约 ¥7,150-8,550/人</div>
     </div>
 
     <div class="card">
@@ -308,100 +309,115 @@ body {
 <script>
 var DAYS = [
 {
-    id:1, name:'D1 12.4', date:'12月4日 周五', theme:'抵达 · 欢迎晚宴', img:'images/cover.jpg',
-    weather:'32-33℃ · 少云', transport:'飞机（深圳-亚庇）+ Grab 打车', ticket:'航班已出票；MDAC 入境卡 12.1-12.4 填写',
+    id:1, name:'D1 12.4', date:'12月4日 周五', theme:'抵达 · 万豪入住 · 夜市夜游', img:'images/seafood.jpg',
+    weather:'32-33℃ · 少云', transport:'飞机（深圳-亚庇）+ 包车/Grab 接机', ticket:'航班已出票；MDAC 入境卡 12.1-12.4 填写',
     meals:[
         {type:'午餐', name:'机场/飞机简餐', note:'亚航餐食可提前官网订，比机上现买便宜'},
-        {type:'晚餐', name:'酒店日落酒吧 Sunset Bar · 欢迎晚宴', note:'边吃边看世界级日落，第一天不折腾'}
+        {type:'晚餐', name:'加雅街一带自理', note:'佑记肉骨茶或街边档口，边逛边吃（详见美食页）'}
     ],
     timeline:[
         {time:'11:40', title:'宝安机场 T3 集合值机', desc:'提前约2小时到即可（宝安T3不大，亚航国际线提前1.5-2小时足够），13:40 起飞（AK1521 直飞3小时）'},
         {time:'16:45', title:'落地亚庇 T1', desc:'入境约40-60分钟，出示护照+MDAC确认信+回程机票'},
-        {time:'18:00', title:'Grab 打车到酒店', desc:'约10分钟车程，RM15-30，8-9人分2-3辆车'},
-        {time:'19:00', title:'日落酒吧欢迎晚宴', desc:'酒店 Sunset Bar，世界七大日落观赏地之一，第一天不出远门'}
+        {time:'17:30', title:'包车/Grab 到万豪酒店', desc:'约10-15分钟车程；万豪在市中心海滨（Lot G, 23A, Jln Tun Fuad Stephens），无边泳池正对海景'},
+        {time:'18:00', title:'入住 · 稍作休整', desc:'时差与深圳相同，不用调表；放好行李出门逛夜市'},
+        {time:'19:00', title:'加雅街晚餐 + 夜逛', desc:'Jalan Gaya 老街，佑记肉骨茶、茶室、手信店都在这条街'},
+        {time:'20:30', title:'天桥底榴莲市场', desc:'菲律宾市场旁海滨，猫山王/红虾傍晚出摊；吃完榴莲当天别喝酒'}
     ]
 },
 {
-    id:2, name:'D2 12.5', date:'12月5日 周六', theme:'跳岛浮潜 · 按摩舒缓', img:'images/island.jpg',
-    weather:'32℃ · 少云', transport:'一日游含酒店接送（面包车）；傍晚打车', ticket:'Klook 跳岛双岛游（出发前3天订，可免费取消）；ZEN Borneo 按摩',
+    id:2, name:'D2 12.5', date:'12月5日 周六', theme:'跳岛浮潜 · 海鲜晚宴', img:'images/island.jpg',
+    weather:'32℃ · 少云', transport:'包车送哲斯顿码头（10分钟）+ 快艇出海', ticket:'跳岛船票提前 Klook 订或导游代订（详见实用页）',
     meals:[
         {type:'早餐', name:'酒店自助早餐', note:'含在房费，出发前吃饱'},
-        {type:'午餐', name:'岛上简餐', note:'含在一日游行程内'},
-        {type:'晚餐', name:'佑记肉骨茶（加雅街）', note:'药材肉骨茶+卤水拼盘+油条，人均 RM20-30'}
+        {type:'午餐', name:'岛上自助午餐', note:'含在跳岛行程内'},
+        {type:'晚餐', name:'大茄来海鲜楼 · 海鲜晚宴', note:'奶油老虎虾+咸蛋黄蟹+椒盐濑尿虾，人均 RM80-120（详见美食页）'}
     ],
     timeline:[
-        {time:'09:00', title:'酒店出发 → 哲斯顿码头', desc:'一日游含接送（下单时选 9 点档）；码头：Jesselton Point Ferry Terminal，市中心海旁，距酒店约10分钟'},
-        {time:'09:30', title:'沙比岛浮潜', desc:'东姑阿都拉曼公园，看鱼群珊瑚，可自费玩香蕉船/拖曳伞'},
-        {time:'12:30', title:'马穆迪岛 + 岛上午餐', desc:'安静小岛，玻璃海浮潜，含简餐'},
-        {time:'15:30', title:'返回酒店冲凉休息', desc:'泳池回血，晒后补水'},
-        {time:'16:30', title:'💆 ZEN Borneo 按摩', desc:'小红书口碑店，足部/全身按摩60分钟约RM98起，晒后舒缓（详见实用页）'},
-        {time:'18:00', title:'丹绒亚路海滩看日落', desc:'17:15前到占位，或在酒店日落酒吧点杯饮品看'},
-        {time:'19:30', title:'晚餐：加雅街佑记肉骨茶', desc:'打车10分钟，人均RM20-30'}
+        {time:'08:30', title:'酒店早餐', desc:'慢慢吃，出海前垫好肚子'},
+        {time:'09:00', title:'包车送哲斯顿码头', desc:'Jesselton Point Ferry Terminal，市中心海旁，车程约10分钟'},
+        {time:'09:30', title:'出海 · 东姑阿都拉曼海洋公园', desc:'沙比/马努干双岛浮潜（具体岛以船家安排为准），看鱼群珊瑚，船程仅15分钟'},
+        {time:'12:00', title:'岛上自助午餐', desc:'含在行程内，沙滩上午餐'},
+        {time:'15:00', title:'返回码头 · 包车接回酒店', desc:'冲凉休息，晒后补水'},
+        {time:'16:30', title:'万豪无边泳池休整', desc:'泳池正对海景朝西，躺着就能看日落，不用出门'},
+        {time:'18:00', title:'日落时分', desc:'泳池/房间阳台观赏（12月日落约18:00）'},
+        {time:'19:00', title:'🦀 大茄来海鲜晚宴', desc:'Kolam Centre 店，打车5分钟；奶油老虎虾+咸蛋黄蟹，人均 RM80-120'}
     ]
 },
 {
-    id:3, name:'D3 12.6', date:'12月6日 周日', theme:'城市文化日 · 海鲜大餐', img:'images/seafood.jpg',
-    weather:'32℃ · 局部阵雨', transport:'全天 Grab 打车（市区景点间10-20分钟）', ticket:'Klook 马里马里文化村半日游（选下午场）',
+    id:3, name:'D3 12.6', date:'12月6日 周日', theme:'CABANA 营地 · 长鼻猴 · 萤火虫', img:'images/cruise.jpg',
+    weather:'32℃ · 局部阵雨', transport:'13:00 包车出发 CABANA 营地（市区以北约1.5-2小时车程）', ticket:'CABANA 营地半日游（含下午茶/长鼻猴游船/烧烤晚餐/铁花秀/萤火虫，详见实用页）',
     meals:[
-        {type:'早餐', name:'酒店自助早餐', note:'出门前垫一口'},
-        {type:'早午餐', name:'怡丰茶室（加雅街）', note:'招牌叻沙+牛杂面+桔子冰，周日排队约20-30分钟'},
-        {type:'晚餐', name:'大茄来海鲜楼 · 团建海鲜大宴', note:'奶油老虎虾+咸蛋黄蟹+椒盐濑尿虾，人均 RM80-120，17:30 前到避开排队'}
+        {type:'早餐', name:'酒店自助早餐', note:'睡到自然醒，慢慢吃'},
+        {type:'午餐', name:'市区自理（出发前）', note:'加雅街怡丰叻沙/富源吐司任选，出发前吃好'},
+        {type:'晚餐', name:'营地海滩烧烤自助（含）', note:'现场乐队伴奏，沙滩篝火晚餐'}
     ],
     timeline:[
-        {time:'09:00', title:'加雅街周日市集', desc:'仅周日有！Jalan Gaya 整条街，手作、小吃、水果摊，淘伴手礼'},
-        {time:'11:00', title:'怡丰茶室早午餐', desc:'加雅街中段，招牌叻沙+牛杂面+桔子冰，周日排队约20-30分钟'},
-        {time:'12:15', title:'水上清真寺 + 沙巴大学粉红清真寺', desc:'水上清真寺在 Likas 湾（打车约15分钟）；粉红清真寺在沙巴大学 UMS 校园内（约20分钟）；入清真寺需租借罩袍，着装不露肩膝'},
-        {time:'14:00', title:'回酒店午休', desc:'午后阵雨时段，正好躲雨'},
-        {time:'14:30', title:'马里马里原住民文化村', desc:'Jalan Kionsom, Inanam（市区以北约30分钟，半日游含接送）；五大部落屋、吹箭体验、传统歌舞、竹筒饭试吃（下午场约3小时）'},
-        {time:'19:00', title:'🦀 大茄来海鲜晚宴', desc:'奶油老虎虾+咸蛋黄蟹+椒盐濑尿虾，人均RM80-120'}
+        {time:'上午', title:'睡到自然醒', desc:'昨晚逛夜市，今早补觉；10:30 前收拾好'},
+        {time:'11:30', title:'市区午餐', desc:'加雅街一带自理（怡丰叻沙人均 RM15-25）'},
+        {time:'13:00', title:'包车出发 CABANA 营地', desc:'市区以北约1.5-2小时车程，车上补觉'},
+        {time:'15:00', title:'抵达营地 · 土著迎宾 + 海景下午茶', desc:'传统舞蹈迎宾，马来糕点+饮品下午茶，海景营地拍照'},
+        {time:'16:00', title:'红树林游船 · 寻长鼻猴', desc:'沙巴特有长鼻猴、银叶猴、水鸟，约30分钟船程（长鼻猴怕生，带望远镜看得清）'},
+        {time:'17:00', title:'营地海滩 · 世界前三日落', desc:'海滩散步/网红拍照点；视当天开放桨板SUP、皮划艇、沙滩游戏'},
+        {time:'18:30', title:'海滩烧烤自助晚餐 + 现场乐队', desc:'篝火+Live Band，海边 Party'},
+        {time:'19:30', title:'火焰秀 · 打铁花', desc:'火焰舞+打铁花特效，营地夜晚最震撼的表演'},
+        {time:'20:00', title:'萤火虫夜游船', desc:'二进红树林，成片萤火虫如星海挂满河岸树（禁闪光灯）'},
+        {time:'20:30', title:'返程市区', desc:'约22:30 回万豪；明天 07:00 神山出发，今晚抓紧睡'}
     ]
 },
 {
-    id:4, name:'D4 12.7', date:'12月7日 周一', theme:'神山自然日', img:'images/mountain.jpg',
-    weather:'市区32℃ · 山上15-22℃', transport:'拼团一日游 07:00 统一发车（全行程唯一早起日），含酒店接送、中文导游，单程约2小时', ticket:'Klook 神山+波令+Desa 拼团一日游（¥378起，含接送午餐，免费取消）',
+    id:4, name:'D4 12.7', date:'12月7日 周一', theme:'神山日 · 牧场 · 鱼疗', img:'images/mountain.jpg',
+    weather:'市区32℃ · 山上15-22℃带薄外套', transport:'07:00 包车出发（全行程唯一早起日），单程约2小时，全天导游随行', ticket:'含在包车+导游服务内；水果市集/大王花/土族茶点为现场自费项',
     meals:[
-        {type:'早餐', name:'酒店自助早餐', note:'起大早，提前和前台确认开餐时间，赶不上就打包'},
-        {type:'午餐', name:'神山山景自助午餐', note:'含在一日游行程内，神山正面景观位'},
-        {type:'晚餐', name:'双天海鲜楼（市中心海滨）', note:'黑胡椒蟹+咸蛋黄鱿鱼，人均 RM70-100，19:30 晚市开吃'},
-        {type:'宵夜', name:'天桥底榴莲街', note:'菲律宾市场旁海滨，猫山王/红虾，人均 RM30-60；吃完榴莲当天别喝酒'}
+        {type:'早餐', name:'酒店自助/打包早餐', note:'起大早，提前一天和前台确认开餐时间，赶不上就打包'},
+        {type:'午餐', name:'瀑布河景餐厅团餐（含）', note:'炒时菜、玉米羹、甜酸鱼片、酱油鸡肉、咖喱鱿鱼、水果'},
+        {type:'晚餐', name:'双天海鲜楼', note:'黑胡椒蟹+咸蛋黄鱿鱼，人均 RM70-100，回程顺路（详见美食页）'}
     ],
     timeline:[
-        {time:'06:50', title:'酒店大堂集合上车', desc:'拼团统一 07:00 发车——全行程唯一早起日，上车补觉（单程约2小时）'},
-        {time:'09:15', title:'Pekan Nabalu 观景台（途经）', desc:'半山观景台休息20分钟，远眺神山，水果山货比市区便宜'},
-        {time:'10:00', title:'神山公园（世界自然遗产）', desc:'Ranau 89300，京那巴鲁山4095米观景、植物园漫步，平地漫步不累'},
-        {time:'12:30', title:'山景自助午餐', desc:'含在行程内，神山正面景观位'},
-        {time:'14:00', title:'波令温泉 + 树冠吊桥', desc:'Poring, Ranau，泡脚解乏，吊桥离地40米（恐高可在下面等）'},
-        {time:'16:00', title:'Desa 奶牛场', desc:'Kundasang 神山脚下，现挤鲜奶+牛奶冰淇淋，神山背景拍团体照'},
-        {time:'17:00', title:'返程市区', desc:'约19:00 回酒店，稍作休整去吃晚市海鲜'}
+        {time:'06:50', title:'酒店大堂集合', desc:'打包早餐带上车，全行程唯一早起日'},
+        {time:'07:00', title:'包车出发神山', desc:'单程约2小时，车上补觉'},
+        {time:'09:15', title:'神山公园观景台', desc:'本土手工艺品、水果、纪念品，远眺京那巴鲁山4095米'},
+        {time:'10:15', title:'神山奶牛牧场（Desa）', desc:'Kundasang 神山脚下，可喂食牛羊、现挤鲜奶+牛奶冰淇淋，打卡拍照'},
+        {time:'11:30', title:'波令温泉 · 树顶吊桥', desc:'吊桥共5段、41公尺高、全程约160米（恐高可在下面等）；天然温泉泡脚解乏'},
+        {time:'13:00', title:'瀑布河景餐厅午餐', desc:'团餐：甜酸鱼片、咖喱鱿鱼、玉米羹等，河景位'},
+        {time:'14:30', title:'大鱼足疗 SPA', desc:'天然鱼疗池，含饲料，脚一伸鱼群涌来（神山线特色体验）'},
+        {time:'15:30', title:'昆达山水果市集', desc:'选购本地时令水果（自费），山货比市区便宜'},
+        {time:'16:00', title:'莱佛士大王花（若盛开）', desc:'世界最大花朵，偶遇靠运气，自费参观'},
+        {time:'16:30', title:'杜顺土族特色茶点', desc:'特色山猪肉+拉茶/沙巴特产红茶（自费），山村民俗味'},
+        {time:'17:00', title:'返程市区', desc:'约19:00 回万豪，稍作休整去吃海鲜'},
+        {time:'19:30', title:'🦀 双天海鲜楼晚餐', desc:'黑胡椒蟹+咸蛋黄鱿鱼，市中心海滨，人均 RM70-100'}
     ]
 },
 {
-    id:5, name:'D5 12.8', date:'12月8日 周二', theme:'休整 · 游轮收官晚宴', img:'images/cruise.jpg',
-    weather:'32℃ · 少云', transport:'上午自由；16:15 打车去丝绸港湾码头（10分钟）', ticket:'北婆罗洲游轮（提前订，9人可询团体价 +60 12-852 8009）',
+    id:5, name:'D5 12.8', date:'12月8日 周二', theme:'市区观光 · 香格里拉 · 日落收官', img:'images/cover.jpg',
+    weather:'32℃ · 少云', transport:'包车市区半日 → 转香格里拉丹绒亚路（车程约20分钟）', ticket:'日落桨板/日落餐吧视天气现场预订（详见实用页）',
     meals:[
-        {type:'早餐', name:'酒店自助早餐', note:'睡到自然醒慢慢吃'},
-        {type:'午餐', name:'酒店餐厅', note:'下午可去 Imago 商场喝下午茶'},
-        {type:'晚餐', name:'游轮国际自助晚餐', note:'含在船票内，茶咖啡软饮畅饮，酒精另购'}
+        {type:'早餐', name:'酒店自助早餐', note:'退房前吃完，行李装车'},
+        {type:'午餐', name:'怡丰茶室（加雅街）', note:'招牌叻沙+牛杂面+桔子冰（详见美食页）'},
+        {type:'晚餐', name:'香格里拉日落餐吧', note:'视天气现场预订，边吃边看世界前三日落'}
     ],
     timeline:[
-        {time:'上午', title:'睡到自然醒', desc:'酒店泳池、私人沙滩、CHI水疗（SPA提前一天预约）'},
-        {time:'12:00', title:'酒店午餐', desc:'下午自由活动：Imago商场购物 / 加练一场按摩'},
-        {time:'16:15', title:'出发前往丝绸港湾码头', desc:'Sutera Harbour 度假区内 Marina 码头（距酒店打车约10分钟）'},
-        {time:'17:10', title:'登船 🚢', desc:'17:30 启航，三层豪华双体船'},
-        {time:'17:30', title:'日落晚餐游轮（团建收官晚宴）', desc:'国际自助晚餐+现场乐队+沙巴传统舞蹈，海上无遮挡日落'},
-        {time:'19:45', title:'下船回酒店', desc:'收拾行李，早休息'}
+        {time:'08:30', title:'早餐 · 退房 · 行李装车', desc:'万豪 4 晚退房，行李随车，傍晚直接进香格里拉'},
+        {time:'09:30', title:'曙光广场（Suria Sabah）', desc:'海滨商场，码头旁，补给零食/防晒'},
+        {time:'10:00', title:'水上清真寺', desc:'Likas 湾，建在海上的清真寺；入内需租借罩袍，着装不露肩膝'},
+        {time:'10:45', title:'基金大厦', desc:'Menara Tun Mustapha，31层圆柱形地标，水上清真寺同区域外观打卡'},
+        {time:'11:30', title:'沙巴大学 · 粉红清真寺', desc:'UMS 校园内，网红粉红清真寺，拍照 30-40 分钟'},
+        {time:'12:30', title:'怡丰茶室午餐', desc:'加雅街中段，招牌叻沙+牛杂面，人均 RM15-25'},
+        {time:'14:00', title:'入住香格里拉丹绒亚路', desc:'车程约20分钟；15:00 前到先寄存行李，园区私人沙滩+两座泳池'},
+        {time:'15:00', title:'私人沙滩 / 泳池自由', desc:'度假村自由活动，无边泳池+椰林沙滩'},
+        {time:'16:30', title:'🌅 日落桨板', desc:'视天气现场预订：酒店水上活动中心或丹绒亚路海滩 SUP，约 RM50-80/人'},
+        {time:'17:45', title:'日落餐吧（Sunset Bar）', desc:'世界前三日落观赏地，沙滩椅点杯饮品看落日；晚餐视天气现场预订'}
     ]
 },
 {
     id:6, name:'D6 12.9', date:'12月9日 周三', theme:'返程', img:'images/massage.jpg',
-    weather:'32℃ · 少云', transport:'Grab 打车到机场（10分钟）→ 飞机', ticket:'航班已出票；无托运额度需提前在亚航官网购买',
+    weather:'32℃ · 少云', transport:'香格里拉→机场仅10分钟车程 → 飞机', ticket:'航班已出票；无托运额度需提前在亚航官网购买',
     meals:[
         {type:'早餐', name:'酒店打包早餐/早早餐', note:'提前一天和前台确认'},
         {type:'午餐', name:'飞机简餐', note:'提前官网订，或落地深圳再吃'}
     ],
     timeline:[
         {time:'06:15', title:'起床', desc:'提前和前台确认早早餐/打包早餐'},
-        {time:'06:50', title:'集合出发去机场', desc:'国际值机起飞前1小时关闭，07:15 前到机场（提前约2小时，酒店距机场仅10分钟）'},
+        {time:'06:50', title:'出发去机场', desc:'香格里拉距机场仅10分钟车程，07:10 前到（国际值机起飞前1小时关闭）'},
         {time:'09:20', title:'AK1520 起飞', desc:'直飞3小时15分钟'},
         {time:'12:35', title:'落地深圳宝安 T3', desc:'解散回家，团建圆满 🎉'}
     ]
@@ -409,44 +425,46 @@ var DAYS = [
 ];
 
 var RESTAURANTS = [
-    {name:'大茄来海鲜楼', en:'Welcome Seafood Restaurant', tags:['Day3 晚餐','团建主宴','人均 RM80-120'], area:'Kolam Centre, Jalan Tunku Abdul Rahman（距酒店打车5分钟；Grab 搜 Welcome Seafood 直达）',
+    {name:'大茄来海鲜楼', en:'Welcome Seafood Restaurant', tags:['Day2 晚餐','海鲜主宴','人均 RM80-120'], area:'Kolam Centre, Jalan Tunku Abdul Rahman（万豪打车5分钟；Grab 搜 Welcome Seafood 直达）',
      dishes:[['奶油老虎虾','招牌必点，奶香浓郁'],['咸蛋黄炒蟹','咸蛋黄控别错过'],['椒盐濑尿虾','外酥里嫩'],['清蒸石斑','海鲜新鲜的试金石']],
-     tip:'17:30 前到可避开排队，8-9人建议提前电话订位'},
-    {name:'怡丰茶室', en:'Yee Fung Laksa', tags:['Day3 早午餐','老字号','人均 RM15-25'], area:'加雅街中段 Jalan Gaya（周日市集步行即达；Grab 搜 Yee Fung）',
+     tip:'跳岛第一天晚市开吃；8-9人建议提前电话订位'},
+    {name:'怡丰茶室', en:'Yee Fung Laksa', tags:['Day5 午餐','老字号','人均 RM15-25'], area:'加雅街中段 Jalan Gaya（市区观光日午餐；Grab 搜 Yee Fung）',
      dishes:[['叻沙 Laksa','招牌，椰香咖喱汤底配米粉'],['牛杂面','炖得软烂入味'],['桔子冰','解腻神器']],
-     tip:'周日市集上午人多，排队约20-30分钟，可分头排'},
-    {name:'佑记肉骨茶', en:'Yu Kee Bak Kut Teh', tags:['Day2 晚餐','药材汤底','人均 RM20-30'], area:'加雅街 Jalan Gaya（Grab 搜 Yu Kee Bak Kut Teh）',
+     tip:'周二人不多，逛完清真寺过来正好'},
+    {name:'佑记肉骨茶', en:'Yu Kee Bak Kut Teh', tags:['Day1 晚餐备选','药材汤底','人均 RM20-30'], area:'加雅街 Jalan Gaya（万豪步行/打车5分钟；Grab 搜 Yu Kee Bak Kut Teh）',
      dishes:[['药材肉骨茶','胡椒药材香，配油条'],['卤水拼盘','卤蛋豆腐入味']],
-     tip:'晚上去，加雅街夜市氛围刚好'},
-    {name:'富源咖啡店', en:'Foo Phin Coffee', tags:['备选早餐','南洋风','人均 RM10-15'], area:'加雅街 Jalan Gaya（从酒店打车约10分钟）',
+     tip:'落地第一晚逛加雅街顺路吃，晚上氛围刚好'},
+    {name:'富源咖啡店', en:'Foo Phin Coffee', tags:['Day3 午餐备选','南洋风','人均 RM10-15'], area:'加雅街 Jalan Gaya（万豪步行约10分钟）',
      dishes:[['咖椰牛油吐司','炭烤吐司夹咖椰酱+冰牛油'],['海南咖啡','拉得又滑又香'],['半生熟蛋','配吐司经典吃法']],
-     tip:'吃不惯酒店自助时的换口味选择，加雅街步行可达'},
+     tip:'出发去 CABANA 营地前的轻午餐选择'},
     {name:'双天海鲜楼', en:'Double Star Seafood', tags:['Day4 晚餐','人均 RM70-100'], area:'市中心海滨一带（Grab 搜「双天海鲜楼」直达）',
      dishes:[['黑胡椒蟹','本地人也认的味道'],['咸蛋黄鱿鱼','下酒好菜']],
-     tip:'神山一日游回程顺路，19:30 到店开吃'},
-    {name:'天桥底榴莲街', en:'Durian Street', tags:['Day4 宵夜','人均 RM30-60'], area:'市中心海滨天桥底，菲律宾市场旁（傍晚出摊）',
+     tip:'神山日回程顺路，19:30 到店开吃'},
+    {name:'天桥底榴莲市场', en:'Durian Street', tags:['Day1 夜逛','人均 RM30-60'], area:'市中心海滨天桥底，菲律宾市场旁（万豪打车5分钟，傍晚出摊）',
      dishes:[['猫山王','苦香回甘，果肉绵密'],['红虾','偏甜口，初尝友好']],
-     tip:'双天吃完散步就到；吃完榴莲当天别喝酒'}
+     tip:'12月非榴莲正季（正季6-9月），选择少价格偏高，尝鲜即可；吃完榴莲当天别喝酒'}
 ];
 
 var TICKETS = [
-    ['12.5 · 跳岛：沙比/马努干/马穆迪岛（含接送+午餐）','预订：Klook 选 12.5 含酒店接送套餐 → 下单备注酒店名 Shangri-La Tanjung Aru；24h 前可免费取消。推荐理由：9人团位提前锁定、旺季免排队、平台客服兜底','¥360-534','https://www.klook.cn/zh-CN/activity/107137-manukan-sapi-island-hopping-massage-experience-kota-kinabalu'],
-    ['12.6 · 马里马里原住民文化村半日游','预订：Klook 搜「马里马里」→ 选 12.6 下午场（含接送）','¥211起','https://www.klook.cn/zh-CN/destination/c364959-kota-kinabalu/'],
-    ['12.7 · 神山公园+波令温泉+Desa一日游（含接送）','预订：Klook 选 12.7「公园+温泉+Desa 农场」方案 → 下单备注酒店名；拼团统一 07:00 发车；免费取消。推荐理由：神山无公共交通，拼团含门票午餐中文导游，比自包车省心且价格相当','¥378-477','https://www.klook.com/zh-CN/activity/1763-kinabalu-park-poring-hot-spring-sabah/'],
-    ['12.8 · 北婆罗洲日落晚餐游轮','预订：携程搜「北婆罗洲游轮」或官网下单（选 12.8）；9 人致电 +60 12-852 8009 询团体价；遇雨可改期','RM255-380','https://northborneocruises.com/sunset-dinner-cruise'],
-    ['12.5 · ZEN Borneo 按摩（Day2 傍晚）','预订：Klook 搜「ZEN Borneo」→ 选 60 分钟档、预约时间填 16:30；也可直接到店（12:00-24:00，最晚预约22:00）','RM98起','https://www.klook.cn/zh-CN/destination/c364959-kota-kinabalu/'],
-    ['12.4-12.9 · 香格里拉酒店（丹绒亚路，5晚）','预订：官网注册会员价下单，或携程比价；9 人团体价发邮件 reservations.tah@shangri-la.com / 电话 +60-88-327-888','约¥1200-1450/间/晚','https://www.shangri-la.com/cn/kotakinabalu/tanjungaruresort/'],
-    ['行前 12.1-12.4 · MDAC 电子入境卡（免费，必填）','填法：官网填护照号、航班 AK1521、酒店地址（No. 20 Jalan Aru, Tanjung Aru）→ 12.1-12.4 每人提交 → 确认信存手机备查','免费','https://imigresen-online.imi.gov.my/mdac/main']
+    ['12.4-12.8 · 万豪酒店（4晚）','预订：携程或万豪官网/App（注册会员价更低）→ 12.4 入住 12.8 退房，双床房 4 间；市中心海滨（Lot G, 23A, Jln Tun Fuad Stephens），无边泳池正对海景，距机场约15分钟','约¥642-900/间/晚','https://www.marriott.com/en-us/hotels/bkikk-kota-kinabalu-marriott-hotel/overview/'],
+    ['12.8-12.9 · 香格里拉丹绒亚路（1晚收官）','预订：官网/携程单查 12.8 入住 12.9 退房；⚠️ 此前查整段 12.4-12.9 线上售罄，单晚需单独确认；若无房：万豪续住第5晚，傍晚打车去丹绒亚路海滩+日落餐吧（日落照看，非住客可消费）','约¥1100-1450/间/晚','https://www.shangri-la.com/cn/kotakinabalu/tanjungaruresort/'],
+    ['12.5 · 跳岛浮潜（东姑阿都拉曼海洋公园）','预订：Klook 选含午餐套餐 → 下单备注酒店名 Kota Kinabalu Marriott；或由包车导游统一代订船票（9人可谈团体价）；24h 前免费取消','¥300-534','https://www.klook.cn/zh-CN/activity/107137-manukan-sapi-island-hopping-massage-experience-kota-kinabalu'],
+    ['12.6 · CABANA 营地半日游（长鼻猴+萤火虫）','预订：携程/Klook 搜「CABANA 红树林」→ 选 12.6 场次；含下午茶/长鼻猴游船/烧烤晚餐/铁花秀/萤火虫夜游，13:00 市区接送；免费取消','¥250-350','https://www.klook.cn/zh-CN/destination/c364959-kota-kinabalu/'],
+    ['12.7 · 神山一日游','含在包车+导游服务内（观景台/牧场/温泉吊桥/团餐/鱼疗已排入行程）；水果市集、大王花、杜顺土族茶点为现场自费项（合计约 RM50-80/人）','已含',''],
+    ['12.8 · 日落桨板 + 日落餐吧','到了看天气现场预订：香格里拉水上活动中心或丹绒亚路海滩 SUP（RM50-80/人）；日落餐吧 Sunset Bar 现场入座点单','RM50-150',''],
+    ['🚐 全程包车+导游（每天10h · 人均4000+）','已与服务商谈定：每天10小时用车+全天导游；神山日 07:00 出发、其余各天 09:00 后出发；超时费与司机提前确认','已谈定',''],
+    ['行前 12.1-12.4 · MDAC 电子入境卡（免费，必填）','填法：官网填护照号、航班 AK1521、酒店地址（万豪：Lot G, 23A, Jalan Tun Fuad Stephens, Kota Kinabalu 88000）→ 12.1 起每人提交 → 确认信存手机备查；12.1 前填不了（3天窗口），填错重交一份自动覆盖','免费','https://imigresen-online.imi.gov.my/mdac/main']
 ];
 
 var BUDGET = [
-    ['跳岛双岛游（含午餐接送）','¥360-534'],
-    ['马里马里文化村','¥211'],
-    ['神山一日游','¥378-477'],
-    ['日落晚餐游轮','¥410-536'],
-    ['按摩','¥149-276'],
-    ['餐饮（6天，含两顿海鲜大餐）','¥800-1000'],
-    ['市内交通+通信+杂项','¥300-400']
+    ['包车（每天10h）+全天导游服务','人均 ¥4000+'],
+    ['万豪4晚（两人一间，含早）','¥1300-1800'],
+    ['香格里拉1晚（两人一间）','¥550-730'],
+    ['跳岛船票+浮潜装备','¥300-534'],
+    ['CABANA 营地套餐','¥250-350'],
+    ['日落桨板+现场杂项','¥100-200'],
+    ['自理餐饮（D1晚餐/D3午餐/D4晚/D5午晚等）','¥500-700'],
+    ['通信卡+杂项备用','¥150-250']
 ];
 
 var currentDay = 1;
@@ -512,9 +530,9 @@ function renderTickets() {
     TICKETS.forEach(function(t) {
         html += '<div class="ticket-item"><div class="ticket-body">' +
             '<div class="ticket-name">' + esc(t[0]) + '</div><div class="ticket-note">' + esc(t[1]) + '</div>' +
-            '<a class="ticket-url" href="' + t[3] + '" target="_blank" rel="noopener" style="color:#4aa3b8;text-decoration:underline;">' + esc(t[3]) + '</a></div>' +
-            '<div class="ticket-price-wrap"><span class="ticket-price">' + esc(t[2]) + '</span>' +
-            '<button class="ticket-copy" onclick="copyLink(\'' + t[3] + '\')">复制</button></div></div>';
+            (t[3] ? '<a class="ticket-url" href="' + t[3] + '" target="_blank" rel="noopener" style="color:#4aa3b8;text-decoration:underline;">' + esc(t[3]) + '</a>' : '') +
+            '</div><div class="ticket-price-wrap"><span class="ticket-price">' + esc(t[2]) + '</span>' +
+            (t[3] ? '<button class="ticket-copy" onclick="copyLink(\'' + t[3] + '\')">复制</button>' : '') + '</div></div>';
     });
     document.getElementById('ticket-list').innerHTML = html;
 }
